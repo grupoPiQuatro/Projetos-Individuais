@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tarciso.projeto.individual.tarciso;
+package com.mycompany.projeto.individual.nathan.david;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
- * @author 55119
+ * @author Nathan David
  */
 public class Conexao {
     private JdbcTemplate connection;

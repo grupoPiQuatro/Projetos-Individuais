@@ -27,14 +27,16 @@ public class Teste {
         Double ram = dados.usoAtualRam();
         Double cpu = dados.usoAtualCpu();
         Double disco = dados.UsoAtualDisco();
+        
+        
 
         TimerTask tarefa = new TimerTask() {
             @Override
             public void run() {
-                int azurePing = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'ms',current_timestamp,?)", ping, 174);
-                int azureRam = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'gb',current_timestamp,?)", ram, 175);
-                int azureCpu = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'%',current_timestamp,?)", cpu, 176);
-                int azureArmazenamento = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'gb',current_timestamp,?)", disco, 177);
+                int azurePing = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'ms',current_timestamp,?)", ping, 337);
+                int azureRam = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'gb',current_timestamp,?)", ram, 338);
+                int azureCpu = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'%',current_timestamp,?)", cpu, 339);
+                int azureArmazenamento = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'gb',current_timestamp,?)", disco, 340);
                 System.out.println("Inserindo a cada 10 segundos...");
             }
         };

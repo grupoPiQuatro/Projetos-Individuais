@@ -35,8 +35,11 @@ public class App {
 
             user = con.query(String.format("select * from Usuario where email = '%s' and senha = '%s'", emailDigitado, senhaDigitada),
                     new BeanPropertyRowMapper(Usuario.class));
+            
             Integer sizeUser = user.size();
-
+            
+            System.out.println(user);
+            
             if (sizeUser > 0) {
                 System.out.println("Login realizado com sucesso!");
                 usuarioEncontrado = true;

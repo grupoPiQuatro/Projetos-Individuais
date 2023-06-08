@@ -9,12 +9,12 @@ package com.mycompany.projeto.individual.nathan.david;
  * @author Nathan David
  */
 public class Usuario {
-    private String login;
+    private String email;
     private String senha;
     private String fkEmpresa;
     
-    public Usuario(String login, String senha, String fkEmpresa){
-        this.login = login;
+    public Usuario(String email, String senha, String fkEmpresa){
+        this.email = email;
         this.senha = senha;
         this.fkEmpresa = fkEmpresa;
     }
@@ -22,12 +22,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -44,5 +44,10 @@ public class Usuario {
 
     public void setFkEmpresa(String fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "email=" + email + ", senha=" + senha + ", fkEmpresa=" + fkEmpresa + '}';
     }
 }

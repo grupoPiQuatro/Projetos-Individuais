@@ -1,0 +1,9 @@
+models\Localizacao.class
+app\App.class
+app\InserirMetrica.class
+app\CadastrarPc.class
+connection\ConnectionAzure.class
+models\Computador.class
+models\Componente.class
+app\CadastrarPc$1.class
+app\InfoPc.class

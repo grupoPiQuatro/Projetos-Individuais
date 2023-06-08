@@ -18,13 +18,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class App {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        CapturarDados dados = new CapturarDados();
         Conexao conexao = new Conexao();
         JdbcTemplate con = conexao.getConnection();
-
-        ConexaoMySql conexaoMySql = new ConexaoMySql();
-        JdbcTemplate conMySql = conexaoMySql.getConnection();
-
         Scanner leitor = new Scanner(System.in);
         List<Usuario> user = new ArrayList();
         Boolean usuarioEncontrado = false;
@@ -54,30 +49,8 @@ public class App {
             }
 
         } while (usuarioEncontrado == false);
-
-        while (true) {
-            Double ping = (double) dados.ping();
-            Double ram = dados.usoAtualRam();
-            Double cpu = dados.usoAtualCpu();
-            Double disco = dados.UsoAtualDisco();
-
-            int azurePing = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'ms',CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120),?)", ping, 1);
-            int azureRam = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'GB',CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120),?)", ram, 2);
-            int azureCpu = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'%',CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120),?)", cpu, 3);
-            int azureArmazenamento = con.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'GB',CONVERT(VARCHAR, DATEADD(HOUR, -3, GETDATE()), 120),?)", disco, 4);
-
-//                int localPing = conMySql.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'ms',current_timestamp,?)", ping, 1);
-//                int localRam = conMySql.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'GB',current_timestamp,?)", ram, 2);
-//                int localCpu = conMySql.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'%',current_timestamp,?)", cpu, 3);
-//                int localArmazenamento = conMySql.update("insert into Metrica (valor, unidade,dtCaptura,fkConfig) values(?,'GB',current_timestamp,?)", disco, 4);
-            System.out.println("Dados inseridos com sucesso!");
-
-            for (int i = 15; i >= 0; i--) {
-                System.out.println("Inserindo novamente em: " + i + " segundos");
-                Thread.sleep(1000);
-                util.limparShell();
-            };
-        }
-
+        
+        CadastrarPc cp = new CadastrarPc();
+        cp.verificarPc();
     }
 }
